@@ -11,20 +11,25 @@ RESET = "\033[0;0m"
 
 def strawlog(msg, lvl):
     if lvl == "ERROR":
-        print(f"[{time}] {RED}[ERROR] {msg}{RESET}")
-        return f"[{time}] {RED}[ERROR] {msg}{RESET}"
+        string = f"[{time}] {RED}[ERROR] {msg}{RESET}"
+        print(string)
+        return string.replace(RED, "").replace(RESET, "") + "\n"
     elif lvl == "WARN":
-        print(f"[{time}] {YELLOW}[WARNING] {msg}{RESET}")
-        return f"[{time}] {YELLOW}[WARNING] {msg}{RESET}"
-    elif lvl == "DEBUG":
-        print(f"[{time}] {PURPLE}[DEBUG] {msg}{RESET}")
-        return f"[{time}] {PURPLE}[DEBUG] {msg}{RESET}"
+        string = f"[{time}] {YELLOW}[WARNING] {msg}{RESET}"
+        print(string)
+        return string.replace(YELLOW, "").replace(RESET, "") + "\n"
     elif lvl == "INFO":
-        print(f"[{time}] {BLUE}[INFO] {msg}{RESET}")
-        return f"[{time}] {BLUE}[INFO] {msg}{RESET}"
+        string = f"[{time}] {BLUE}[INFO] {msg}{RESET}"
+        print(string)
+        return string.replace(BLUE, "").replace(RESET, "") + "\n"
+    elif lvl == "DEBUG":
+        string = f"[{time}] {PURPLE}[DEBUG] {msg}{RESET}"
+        print(string)
+        return string.replace(PURPLE, "").replace(RESET, "") + "\n"
     else:
-        print(f"[{time}] [{lvl}] {msg}")
-        return f"[{time}] [{lvl}] {msg}"
+        string = f"[{time}] [{lvl}] {msg}"
+        print(string)
+        return string + "\n"
    
 # This might be removed in the future
 def logtofile(strawlog):
